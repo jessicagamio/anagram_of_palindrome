@@ -31,7 +31,13 @@ def is_anagram_of_palindrome(word):
     """Is the word an anagram of a palindrome?"""
 
     # Check to see if this is NOT a anogram first
-    if word == word[::-1]:
+    
+    if len(word) == 1:
+        print('================> this is ',True)
+        return True
+
+
+    elif word == word[::-1]:
         return False
 
     else:
@@ -42,7 +48,7 @@ def is_anagram_of_palindrome(word):
         # for even number words check to see if letter has pairs
         if word_length % 2 == 0:
             for number in num_of_letter_set:
-                if letter % 2 == 0
+                if letter % 2 == 0:
                     return True
                 else:
                     return False
