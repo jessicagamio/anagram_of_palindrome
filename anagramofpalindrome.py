@@ -33,7 +33,6 @@ def is_anagram_of_palindrome(word):
     # Check to see if this is NOT a anogram first
     
     if len(word) == 1:
-        print('================> this is ',True)
         return True
 
 
@@ -45,14 +44,20 @@ def is_anagram_of_palindrome(word):
         letter_dict = {letter:word.count(letter) for letter in set(word)}
         num_of_letter_set = set(letter_dict.values())
 
-        # for even number words check to see if letter has pairs
+        # if even number word jas all letter in pairs return True
         if word_length % 2 == 0:
             for number in num_of_letter_set:
-                if letter % 2 == 0:
+                if number % 2 == 0:
                     return True
                 else:
                     return False
-
+        # if odd number word has all letters in pairs except for one return True
+        else:
+            count=[number for number in num_of_letter_set if number % 2 != 0]
+            if len(count)==1:
+                return True
+            else:
+                return False
 
 
 if __name__ == '__main__':
